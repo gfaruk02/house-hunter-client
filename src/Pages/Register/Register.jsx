@@ -1,29 +1,50 @@
 import { useState } from "react";
 import Swal from "sweetalert2";
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 
 const Register = () => {
+	const navigate = useNavigate()
 	const [showPassword, setShowPassword] = useState(false)
 	const handleRegister = e => {
 		e.preventDefault();
 		const form = e.target;
 		const name = form.name.value;
 		const email = form.email.value;
+		const phone = form.phone.value;
 		const photo = form.photo.value;
+		const role = form.role.value;
 		const password = form.password.value;
-		console.log(name, email, photo, password);
-
-		// setSuccess('')
-		if (!/^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+{}[\]:;<>,.?~\\-]).{6,}$/.test(password)) {
-			Swal.fire({
-				title: 'Error!',
-				text: 'Password Minimum 6 characters, at least one uppercase letter, one number and one special character:',
-				icon: 'error',
-				confirmButtonText: 'Cool'
+		console.log(name, email, photo, role, password);
+		const userInfo = {name, email, phone, photo, role, password}
+		// if (!/^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+{}[\]:;<>,.?~\\-]).{6,}$/.test(password)) {
+		// 	Swal.fire({
+		// 		title: 'Error!',
+		// 		text: 'Password Minimum 6 characters, at least one uppercase letter, one number and one special character:',
+		// 		icon: 'error',
+		// 		confirmButtonText: 'Cool'
+		// 	})
+		// }
+		// else{
+			axios.post('http://localhost:5000/user',userInfo)
+			.then(res => {
+				if (res.data.insertedId) {
+					console.log('User Created Successfully');
+					Swal.fire({
+						position: "center",
+						icon: "success",
+						title: "User Created Successfully.",
+						showConfirmButton: false,
+						timer: 1500
+					});
+					e.target.reset();
+				}
+				navigate('/')
 			})
-		}
+			.catch(err=> console.log(err))
+		// }
 	}
 	return (
 		<div>
@@ -47,10 +68,26 @@ const Register = () => {
 								</div>
 								<div className="form-control">
 									<label className="label">
+										<span className=" text-gray-100 label-text">phone</span>
+									</label>
+									<input name='phone' type="text" placeholder="ex:- 01100000000" className="input input-bordered" required />
+								</div>
+								<div className="form-control">
+									<label className="label">
 										<span className=" text-gray-100 label-text">Photo Url</span>
 									</label>
 									<input name='photo' type="text" placeholder="Enter Your Photo Url" className="input input-bordered" required />
 								</div>
+								<div className="form-control ">
+								<label className="label">
+										<span className=" text-gray-100 label-text">Role</span>
+									</label>
+                        <select className="select select-bordered text-gray-800 " id="role" name="role">
+                            <option disabled selected>Select Role</option>
+                            <option value="Owner">House Owner </option>
+                            <option value="Renter">House Renter</option>
+                        </select>
+                    </div>
 								<div className="form-control">
 									<label className="label">
 										<span className=" text-gray-100 label-text">Password</span>

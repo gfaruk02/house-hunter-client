@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Swal from "sweetalert2";
+// import Swal from "sweetalert2";
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { Link } from "react-router-dom";
 
@@ -13,14 +13,14 @@ const Login = () => {
 		console.log(email, password);
 
 		// setSuccess('')
-		if (!/^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+{}[\]:;<>,.?~\\-]).{6,}$/.test(password)) {
-			Swal.fire({
-				title: 'Error!',
-				text: 'Password Minimum 6 characters, at least one uppercase letter, one number and one special character:',
-				icon: 'error',
-				confirmButtonText: 'Cool'
-			})
-		}
+		// if (!/^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+{}[\]:;<>,.?~\\-]).{6,}$/.test(password)) {
+		// 	Swal.fire({
+		// 		title: 'Error!',
+		// 		text: 'Password Minimum 6 characters, at least one uppercase letter, one number and one special character:',
+		// 		icon: 'error',
+		// 		confirmButtonText: 'Cool'
+		// 	})
+		// }
 	}
 	return (
 		<div>
