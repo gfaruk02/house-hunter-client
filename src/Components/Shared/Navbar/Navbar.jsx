@@ -46,6 +46,20 @@ const Navbar = () => {
             Login
             </NavLink>
          </li>
+         <li>
+            <NavLink to='/ownerDashboard'
+            style={({ isActive, isPending, isTransitioning }) => {
+                return {
+                fontWeight: isActive ? "bold" : "bold",
+                color: isPending ? "white" : "",
+                 backgroundColor: isActive ? "green" : "",
+                viewTransitionName: isTransitioning ? "slide" : "",
+                };
+            }}
+            > 
+            Owner Dashboard
+            </NavLink>
+         </li>
         
         </>
     
