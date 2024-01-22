@@ -31,7 +31,8 @@ const router = createBrowserRouter([
       },
       {
         path: '/ownerDashboard',
-        element: <Dashboard></Dashboard>
+        element: <Dashboard></Dashboard>,
+        loader: () => fetch('http://localhost:5000/houses')
       }
     ]
   },
