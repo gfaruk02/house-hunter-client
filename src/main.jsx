@@ -10,6 +10,7 @@ import Home from './Pages/Home/Home';
 import Register from './Pages/Register/Register';
 import Login from './Pages/Login/Login';
 import Dashboard from './Pages/Dashboard/OwnerDashboard/Dashboard';
+import RenterDashboard from './Pages/Dashboard/Renter/RenterDashboard';
 
 
 const router = createBrowserRouter([
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
         path: '/ownerDashboard',
         element: <Dashboard></Dashboard>,
         loader: () => fetch('http://localhost:5000/houses')
+      },
+      {
+        path: '/renterDashboard',
+        element: <RenterDashboard></RenterDashboard>
       }
     ]
   },

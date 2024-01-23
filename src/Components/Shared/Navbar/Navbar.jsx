@@ -1,7 +1,16 @@
 import { NavLink } from "react-router-dom";
+import useUser from "../../Hooks/useUser";
+import { useEffect, useState } from "react";
+// import { useState } from "react";
 
 
 const Navbar = () => {
+  const [user, setUser] = useState({})
+  const users = useUser()
+ console.log(users);
+ useEffect(() => {
+  setUser(users.length > 0 ? users[0] : {});
+}, [users]);
     const navItems = 
         <>
          <li>
@@ -46,20 +55,41 @@ const Navbar = () => {
             Login
             </NavLink>
          </li>
-         <li>
-            <NavLink to='/ownerDashboard'
-            style={({ isActive, isPending, isTransitioning }) => {
-                return {
-                fontWeight: isActive ? "bold" : "bold",
-                color: isPending ? "white" : "",
-                 backgroundColor: isActive ? "green" : "",
-                viewTransitionName: isTransitioning ? "slide" : "",
-                };
-            }}
-            > 
-            Owner Dashboard
-            </NavLink>
-         </li>
+         {user.role === 'Owner' ? (
+              
+                <li>
+                <NavLink to='/ownerDashboard'
+                style={({ isActive, isPending, isTransitioning }) => {
+                    return {
+                    fontWeight: isActive ? "bold" : "bold",
+                    color: isPending ? "white" : "",
+                     backgroundColor: isActive ? "green" : "",
+                    viewTransitionName: isTransitioning ? "slide" : "",
+                    };
+                }}
+                > 
+                Owner Dashboard
+                </NavLink>
+             </li>
+            ) : (user.role === 'Renter' ? <li>
+              <NavLink to='/renterDashboard'
+              style={({ isActive, isPending, isTransitioning }) => {
+                  return {
+                  fontWeight: isActive ? "bold" : "bold",
+                  color: isPending ? "white" : "",
+                   backgroundColor: isActive ? "green" : "",
+                  viewTransitionName: isTransitioning ? "slide" : "",
+                  };
+              }}
+              > 
+              Renter Dashboard
+              </NavLink>
+           </li> : (" ")
+              
+              
+            )}
+       
+        
         
         </>
     
@@ -76,6 +106,7 @@ const Navbar = () => {
       </ul>
     </div>
     <a className="btn btn-ghost text-xl">House Hunter</a>
+    {/* <a className="btn btn-ghost text-xl text-gray-800"> {users.name} </a> */}
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">

@@ -1,26 +1,37 @@
 import { useState } from "react";
 // import Swal from "sweetalert2";
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
+import useAxios from "../../Components/Hooks/useAxios";
 
 const Login = () => {
+	const asiosPublic = useAxios()
 	const [showPassword, setShowPassword] = useState(false)
+	const navigate = useNavigate()
 	const handleLogin = e => {
 		e.preventDefault();
 		const form = e.target;
 		const email = form.email.value;
 		const password = form.password.value;
 		console.log(email, password);
-
-		// setSuccess('')
-		// if (!/^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+{}[\]:;<>,.?~\\-]).{6,}$/.test(password)) {
-		// 	Swal.fire({
-		// 		title: 'Error!',
-		// 		text: 'Password Minimum 6 characters, at least one uppercase letter, one number and one special character:',
-		// 		icon: 'error',
-		// 		confirmButtonText: 'Cool'
-		// 	})
-		// }
+		const userInfo ={email, password}
+		asiosPublic.post('login',userInfo)
+			.then(res => {
+				if (res.data === "success") {
+					console.log('User Created Successfully');
+					Swal.fire({
+						position: "center",
+						icon: "success",
+						title: "User Created Successfully.",
+						showConfirmButton: false,
+						timer: 1500
+					});
+					e.target.reset();
+				}
+				navigate('/')
+			})
+			.catch(err=> console.log(err))
 	}
 	return (
 		<div>
