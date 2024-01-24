@@ -13,6 +13,9 @@ dist-ssr
 *.local
 .env
 
+https://house-hunter-server-rho-nine.vercel.app
+http://localhost:5000
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

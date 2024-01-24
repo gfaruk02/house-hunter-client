@@ -2,7 +2,6 @@ import Swal from "sweetalert2";
 import useAxios from "../../Components/Hooks/useAxios";
 import useHouses from "../../Components/Hooks/useHouses";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
 
 
 const Home = () => {
@@ -10,25 +9,7 @@ const Home = () => {
     const axiosPublic = useAxios()
     const navigate = useNavigate();
     // console.log(houses);
-    const [filters, setFilters] = useState({
-        city: "",
-        bedrooms: "",
-        bathrooms: "",
-        rent: "",
-      });
-    
-      const filteredHouses = houses.filter((house) => {
-        return (
-          house.city.toLowerCase().includes(filters.city.toLowerCase()) &&
-          (filters.bedrooms === "" || house.bedrooms.toString() === filters.bedrooms) &&
-          (filters.bathrooms === "" || house.bathrooms.toString() === filters.bathrooms) &&
-          (filters.rent === "" || house.rent.toString() === filters.rent)
-        );
-      });
-    
-      const handleFilterChange = (filterName, value) => {
-        setFilters((prevFilters) => ({ ...prevFilters, [filterName]: value }));
-      };
+
 
 
 
@@ -67,60 +48,42 @@ const Home = () => {
     }
     return (
         <div>
-            <div className="w-full rounded-md bg-gray-900 px-5 lg:mt-10 max-h-[600px]">
+            <div className="w-full rounded-md bg-gray-900 px-5 lg:mt-20 max-h-[600px]">
                         <span className="block mb-2 text-violet-400"></span>
                         <h1 className="text-5xl font-extrabold text-gray-100">Filter</h1>
                         <div className="pt-2">
-                        <div className="flex flex-row gap-2">
-            <div>
-              <p className=" py-1 text-sm">City</p>
-              <input
-                name="city"
-                type="text"
-                placeholder="city"
-                className="py-2 pl-2 w-full rounded-md focus:ring focus:ri border-gray-700 text-gray-100"
-                onChange={(e) => handleFilterChange("city", e.target.value)}
-              />
-            </div>
-            <div>
-              <p className=" py-1 text-sm">bedrooms</p>
-              <input
-                name="bedrooms"
-                type="text"
-                placeholder="bedrooms"
-                className="py-2 pl-2 w-full rounded-md focus:ring focus:ri border-gray-700 text-gray-100"
-                onChange={(e) => handleFilterChange("bedrooms", e.target.value)}
-              />
-            </div>
-            <div>
-              <p className=" py-1 text-sm">bathrooms</p>
-              <input
-                name="bathrooms"
-                type="text"
-                placeholder="bathrooms"
-                className="py-2 pl-2 w-full rounded-md focus:ring focus:ri border-gray-700 text-gray-100"
-                onChange={(e) => handleFilterChange("bathrooms", e.target.value)}
-              />
-            </div>
-            <div>
-              <p className=" py-1 text-sm">rent</p>
-              <input
-                name="rent"
-                type="text"
-                placeholder="rent"
-                className="py-2 pl-2 w-full rounded-md focus:ring focus:ri border-gray-700 text-gray-100"
-                onChange={(e) => handleFilterChange("rent", e.target.value)}
-              />
-            </div>
-          </div>
-          <button type="button" className="w-full mt-5 py-3 font-semibold rounded bg-rose-400 text-gray-900">
-            Filter House
-          </button>
-        </div>
-      </div>
+                            <div className=" flex flex-row gap-2">
+                            <div>
+                                <p className=" py-1 text-sm">City</p>
+                                <input name="city" type="text" placeholder="city" className=" py-2 pl-2 w-full rounded-md focus:ring focus:ri border-gray-700 text-gray-100 "
+                                    onChange={(e) => (e.target.value)}
+                                />
+                            </div>
+                            <div>
+                                <p className=" py-1 text-sm">bedrooms</p>
+                                <input name="bedrooms" type="text" placeholder="bedrooms" className=" py-2 pl-2 w-full rounded-md focus:ring focus:ri border-gray-700 text-gray-100 "
+                                    onChange={(e) => (e.target.value)}
+                                />
+                            </div>
+                            <div>
+                                <p className=" py-1 text-sm">bathrooms</p>
+                                <input name="bathrooms" type="text" placeholder="bathrooms" className=" py-2 pl-2 w-full rounded-md focus:ring focus:ri border-gray-700 text-gray-100 "
+                                    onChange={(e) => (e.target.value)}
+                                />
+                            </div>
+                            <div>
+                                <p className=" py-1 text-sm">rent</p>
+                                <input name="rent" type="text" placeholder="rent" className=" py-2 pl-2 w-full rounded-md focus:ring focus:ri border-gray-700 text-gray-100 "
+                                    onChange={(e) => (e.target.value)}
+                                />
+                            </div>
+                            </div>
+                        <button  type="button" className="w-full mt-5 py-3 font-semibold rounded bg-rose-400 text-gray-900">Filter House</button>
+                    </div>
+                    </div>
             <div className="my-10 md:mx-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-center justify-between">
                 {
-                    filteredHouses?.map(house => <div key={house._id} className="max-w-lg p-3 shadow-md bg-gray-50 text-gray-900">
+                    houses?.map(house => <div key={house._id} className="max-w-lg p-3 shadow-md bg-gray-50 text-gray-900">
                         <div className="flex justify-between pb-4 border-bottom">
                             <div className="flex items-center">
                                 <a rel="noopener noreferrer" href="#" className="mb-0 capitalize text-gray-900 text-xl font-bold">{house.name}</a>
@@ -157,7 +120,7 @@ const Home = () => {
 
                             <div>
                                 {/* The button to open modal */}
-                                <label htmlFor="my_modal_7" className="btn font-bold text-md text-rose-700 border-rose-900 hover:bg-rose-500 hover:text-white">Booking House</label>
+                                <label htmlFor="my_modal_7" className="btn font-bold text-md text-orange-700 border-red-900 hover:bg-gray-500 hover:text-white">Booking House</label>
 
                                 {/* Put this part before </body> tag */}
                                 <input type="checkbox" id="my_modal_7" className="modal-toggle" />
@@ -217,7 +180,6 @@ const Home = () => {
                     )
                 }
             </div>
-            
         </div>
     );
 };

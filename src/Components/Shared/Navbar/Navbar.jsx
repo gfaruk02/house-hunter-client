@@ -34,7 +34,7 @@ const Navbar = () => {
             return {
               fontWeight: isActive ? "bold" : "bold",
               color: isPending ? "white" : "",
-              backgroundColor: isActive ? "green" : "",
+              backgroundColor: isActive ? "rose" : "",
               viewTransitionName: isTransitioning ? "slide" : "",
             };
           }}
@@ -48,7 +48,7 @@ const Navbar = () => {
             return {
               fontWeight: isActive ? "bold" : "bold",
               color: isPending ? "white" : "",
-              backgroundColor: isActive ? "green" : "",
+              backgroundColor: isActive ? "rose" : "",
               viewTransitionName: isTransitioning ? "slide" : "",
             };
           }}
@@ -62,7 +62,7 @@ const Navbar = () => {
             return {
               fontWeight: isActive ? "bold" : "bold",
               color: isPending ? "white" : "",
-              backgroundColor: isActive ? "green" : "",
+              backgroundColor: isActive ? "rose" : "",
               viewTransitionName: isTransitioning ? "slide" : "",
             };
           }}
@@ -78,7 +78,7 @@ const Navbar = () => {
               return {
                 fontWeight: isActive ? "bold" : "bold",
                 color: isPending ? "white" : "",
-                backgroundColor: isActive ? "green" : "",
+                backgroundColor: isActive ? "rose" : "",
                 viewTransitionName: isTransitioning ? "slide" : "",
               };
             }}
@@ -92,7 +92,7 @@ const Navbar = () => {
             return {
               fontWeight: isActive ? "bold" : "bold",
               color: isPending ? "white" : "",
-              backgroundColor: isActive ? "green" : "",
+              backgroundColor: isActive ? "rose" : "",
               viewTransitionName: isTransitioning ? "slide" : "",
             };
           }}
@@ -120,7 +120,7 @@ const Navbar = () => {
               {navItems}
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl">House Hunter</a>
+          <a className="btn btn-ghost text-2xl font-bold text-rose-700">House Hunter</a>
           {/* <a className="btn btn-ghost text-xl text-gray-800"> {users.name} </a> */}
         </div>
         <div className="navbar-center hidden lg:flex">
