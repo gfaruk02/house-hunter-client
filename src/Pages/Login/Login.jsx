@@ -16,7 +16,10 @@ const Login = () => {
 		const password = form.password.value;
 		console.log(email, password);
 		const userInfo ={email, password}
-		asiosPublic.post('login',userInfo)
+
+
+
+		asiosPublic.put('user',userInfo)
 			.then(res => {
 				if (res.data === "success") {
 					console.log('User Created Successfully');
@@ -29,6 +32,7 @@ const Login = () => {
 					});
 					e.target.reset();
 				}
+				localStorage.setItem('email', email);
 				navigate('/')
 			})
 			.catch(err=> console.log(err))

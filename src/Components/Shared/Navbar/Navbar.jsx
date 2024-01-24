@@ -1,16 +1,31 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import useUser from "../../Hooks/useUser";
 import { useEffect, useState } from "react";
-// import { useState } from "react";
-
 
 const Navbar = () => {
-  const [user, setUser] = useState({})
+  const [user, setUser] = useState([])
   const users = useUser()
- console.log(users);
- useEffect(() => {
-  setUser(users.length > 0 ? users[0] : {});
-}, [users]);
+  const navigate = useNavigate()
+// console.log(users);
+// if(users.email === localStorage.getItem('email')){
+//   setUser(users)
+
+  useEffect(() => {
+    const userEmail = localStorage.getItem('email');
+    const result = users.find((user) => user.email === userEmail);
+    if (result) {
+      setUser(result);
+      // window.location.reload(false);
+    } else {
+      setUser({});
+    }
+  }, [users]);
+
+  const handleLogout = () => {
+    localStorage.removeItem('email');
+    setUser({});
+    navigate('/');
+  };
     const navItems = 
         <>
          <li>
@@ -113,9 +128,10 @@ const Navbar = () => {
      {navItems}
     </ul>
   </div>
+  {user.role && <> 
   <div className="navbar-end">
-    <a className="btn">Button</a>
-  </div>
+     <button className="btn" onClick={handleLogout}> Logout </button>
+  </div></>}
 </div>
         </div>
     );

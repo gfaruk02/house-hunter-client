@@ -123,7 +123,7 @@ houses?.map(house=>
 						<p>{house.phone}</p>
 					</td>
 					<td className="p-3 text-right">
-						<p>{house.description}</p>
+						<p>{house.description.slice(0, 15)}</p>
 					</td>
 					<td className="p-3 text-right">
 						<span className="px-3 py-1 font-semibold rounded-md bg-violet-400 text-gray-900">
