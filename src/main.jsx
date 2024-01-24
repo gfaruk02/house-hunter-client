@@ -37,7 +37,8 @@ const router = createBrowserRouter([
       },
       {
         path: '/renterDashboard',
-        element: <RenterDashboard></RenterDashboard>
+        element: <RenterDashboard></RenterDashboard>,
+        loader: () => fetch('http://localhost:5000/booking')
       }
     ]
   },
