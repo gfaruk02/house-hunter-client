@@ -130,7 +130,7 @@ const Navbar = () => {
         </div>
         {user.role && <>
           <div className="navbar-end">
-            <button className="btn" onClick={handleLogout}> Logout </button>
+            <button className="btn bg-rose-400 text-white" onClick={handleLogout}> Logout </button>
           </div></>}
       </div>
     </div>

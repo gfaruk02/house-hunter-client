@@ -135,10 +135,10 @@ const Dashboard = () => {
 													<p>{house.description.slice(0, 15)}</p>
 												</td>
 												<td className="p-3 text-right">
-													<span className="px-3 py-1 font-semibold rounded-md bg-violet-400 text-gray-900">
+													<span className="px-3 py-1 font-semibold rounded-md bg-red-400 text-gray-900">
 														<span>Edit</span>
 													</span>
-													<span className="ml-2 px-3 py-1 font-semibold rounded-md bg-violet-400 text-gray-900">
+													<span className="ml-2 px-3 py-1 font-semibold rounded-md bg-red-400 text-gray-900">
 														<button onClick={() => handleDelete(house._id)} className="hover:bg-red-400 hover:text-white p-2 rounded-lg text-red-500 font-bold">
 															X
 														</button>
