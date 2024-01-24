@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 const useHouses = () => {
     const [houser, setHouser] = useState([])
     useEffect(()=>{
-        fetch('http://localhost:5000/houses')
+        fetch('https://house-hunter-server-rho-nine.vercel.app/houses')
         .then(res=>res.json())
         .then(data=> setHouser(data));
     },[])

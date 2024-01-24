@@ -33,12 +33,12 @@ const router = createBrowserRouter([
       {
         path: '/ownerDashboard',
         element: <Dashboard></Dashboard>,
-        loader: () => fetch('http://localhost:5000/houses')
+        loader: () => fetch('https://house-hunter-server-rho-nine.vercel.app/houses')
       },
       {
         path: '/renterDashboard',
         element: <RenterDashboard></RenterDashboard>,
-        loader: () => fetch('http://localhost:5000/booking')
+        loader: () => fetch('https://house-hunter-server-rho-nine.vercel.app/booking')
       }
     ]
   },

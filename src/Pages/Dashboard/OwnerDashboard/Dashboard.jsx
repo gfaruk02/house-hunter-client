@@ -32,7 +32,7 @@ const Dashboard = () => {
 			confirmButtonText: 'Yes, delete it!'
 		}).then((result) => {
 			if (result.isConfirmed) {
-				fetch(`http://localhost:5000/houses/${_id}`, {
+				fetch(`https://house-hunter-server-rho-nine.vercel.app/houses/${_id}`, {
 					method: "DELETE"
 				})
 					.then(res => res.json())

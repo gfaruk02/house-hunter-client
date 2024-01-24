@@ -21,7 +21,7 @@ const AddHouse = () => {
 
         const houseData = { name, email, address, city, bedrooms, roomSize, bathrooms, picture, date, rent, phone, description }
         console.log(houseData);
-        axios.post('http://localhost:5000/houses', houseData)
+        axios.post('https://house-hunter-server-rho-nine.vercel.app/houses', houseData)
             .then(res => {
                 if (res.data.insertedId) {
                     console.log('Add House Created Successfully');

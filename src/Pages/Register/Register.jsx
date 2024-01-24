@@ -28,7 +28,7 @@ const Register = () => {
 		// 	})
 		// }
 		// else{
-			axios.post('http://localhost:5000/user',userInfo)
+			axios.post('https://house-hunter-server-rho-nine.vercel.app/user',userInfo)
 			.then(res => {
 				if (res.data.insertedId) {
 					console.log('User Created Successfully');

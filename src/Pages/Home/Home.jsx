@@ -109,23 +109,23 @@ const Home = () => {
                                                 <p> House Info</p>
                                                 <div className="text-base font-semibold flex items-center">
                                                     <span className="mr-1 w-32"> House Id:</span>
-                                                    <input type="text" name="houseId" defaultValue={house._id} placeholder="House Name" className="input input-bordered flex-1" required />
+                                                    <input type="text" name="houseId" defaultValue={house._id} placeholder="House Name" className="input input-bordered flex-1" disabled required />
                                                 </div>
                                                 <div className="text-base font-semibold flex items-center">
                                                     <span className="mr-1 w-32"> House:</span>
-                                                    <input type="text" name="hname" defaultValue={house.name} placeholder="House Name" className="input input-bordered flex-1" required />
+                                                    <input type="text" name="hname" defaultValue={house.name} placeholder="House Name" className="input input-bordered flex-1" disabled required />
                                                 </div>
                                                 <div className="text-base font-semibold flex items-center">
                                                     <span className="mr-1 w-32"> Address:</span>
-                                                    <input type="text" name="address" defaultValue={house.address} placeholder="House Address" className="input input-bordered flex-1" required />
+                                                    <input type="text" name="address" defaultValue={house.address} placeholder="House Address" className="input input-bordered flex-1" disabled required />
                                                 </div>
                                                 <div className="text-base font-semibold flex items-center">
                                                     <span className="mr-1 w-32"> city:</span>
-                                                    <input type="text" name="city" defaultValue={house.city} placeholder="City" className="input input-bordered flex-1" required />
+                                                    <input type="text" name="city" defaultValue={house.city} placeholder="City" className="input input-bordered flex-1" disabled required />
                                                 </div>
                                                 <div className="text-base font-semibold flex items-center">
                                                     <span className="mr-1 w-32"> Phone:</span>
-                                                    <input type="text" name="contact" defaultValue={house.phone} placeholder="Owner Contact Number" className="input input-bordered flex-1" required />
+                                                    <input type="text" name="contact" defaultValue={house.phone} placeholder="Owner Contact Number" className="input input-bordered flex-1" disabled required />
                                                 </div>
                                             </div>
 

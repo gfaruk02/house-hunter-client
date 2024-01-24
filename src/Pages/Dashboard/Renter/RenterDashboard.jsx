@@ -29,7 +29,7 @@ const RenterDashboard = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/booking/${_id}`, {
+                fetch(`https://house-hunter-server-rho-nine.vercel.app/booking/${_id}`, {
                     method: "DELETE"
                 })
                     .then(res => res.json())
